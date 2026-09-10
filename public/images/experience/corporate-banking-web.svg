@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Laptop showing corporate banking web login">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#434f63"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg)"/>
+  <ellipse cx="450" cy="520" rx="320" ry="28" fill="#64748b" opacity="0.18"/>
+  <path d="M120 420h660c12 0 22 10 22 22v8H98v-8c0-12 10-22 22-22z" fill="#334155"/>
+  <path d="M140 428h620c6 0 10 4 10 10v4H130v-4c0-6 4-10 10-10z" fill="#475569"/>
+  <rect x="160" y="72" width="580" height="360" rx="14" fill="#334155" stroke="#475569" stroke-width="4"/>
+  <rect x="176" y="88" width="548" height="328" rx="6" fill="#64748b"/>
+  <rect x="176" y="88" width="548" height="328" rx="6" fill="url(#screenGlow)"/>
+  <rect x="176" y="88" width="548" height="36" fill="#94a3b8"/>
+  <rect x="176" y="123" width="548" height="1" fill="#94a3b8"/>
+  <circle cx="196" cy="106" r="5" fill="#ef4444"/>
+  <circle cx="214" cy="106" r="5" fill="#eab308"/>
+  <circle cx="232" cy="106" r="5" fill="#22c55e"/>
+  <rect x="260" y="98" width="220" height="16" rx="8" fill="#cbd5e1" stroke="#64748b"/>
+  <text x="270" y="110" fill="#64748b" font-family="system-ui,sans-serif" font-size="9">https://cbx.bank/login</text>
+  <rect x="318" y="168" width="264" height="220" rx="12" fill="#94a3b8" stroke="#334155" stroke-width="1"/>
+  <text x="450" y="208" text-anchor="middle" fill="#0f172a" font-family="system-ui,sans-serif" font-size="16" font-weight="600">Corporate Banking</text>
+  <text x="450" y="228" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">Secure sign in to CBX Web</text>
+  <text x="334" y="258" fill="#475569" font-family="system-ui,sans-serif" font-size="10">User ID</text>
+  <rect x="334" y="264" width="232" height="32" rx="6" fill="#cbd5e1" stroke="#475569"/>
+  <text x="346" y="284" fill="#334155" font-family="system-ui,sans-serif" font-size="11">corporate.user@bank</text>
+  <text x="334" y="314" fill="#475569" font-family="system-ui,sans-serif" font-size="10">Password</text>
+  <rect x="334" y="320" width="232" height="32" rx="6" fill="#cbd5e1" stroke="#475569"/>
+  <circle cx="546" cy="336" r="3" fill="#94a3b8"/>
+  <circle cx="538" cy="336" r="3" fill="#94a3b8"/>
+  <circle cx="530" cy="336" r="3" fill="#94a3b8"/>
+  <rect x="334" y="362" width="232" height="36" rx="8" fill="url(#btn)"/>
+  <text x="450" y="385" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Sign in</text>
+</svg>

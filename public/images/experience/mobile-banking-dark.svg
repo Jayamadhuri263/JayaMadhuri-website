@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Android phone showing mobile banking login">
+  <defs>
+    <linearGradient id="mbgDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#b0bcc9"/>
+    </linearGradient>
+    <linearGradient id="androidBtnDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#mbgDark)"/>
+  <ellipse cx="450" cy="500" rx="140" ry="18" fill="#1e293b" opacity="0.28"/>
+  <rect x="318" y="48" width="264" height="468" rx="36" fill="#64748b" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="330" y="72" width="240" height="420" rx="24" fill="#475569"/>
+  <text x="350" y="94" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10">9:41</text>
+  <rect x="538" y="84" width="18" height="10" rx="2" fill="none" stroke="#64748b"/>
+  <rect x="540" y="86" width="12" height="6" rx="1" fill="#22c55e"/>
+  <rect x="330" y="104" width="240" height="48" fill="#64748b"/>
+  <text x="450" y="134" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Mobile Banking</text>
+  <circle cx="450" cy="198" r="36" fill="#64748b" stroke="#22d3ee" stroke-width="2"/>
+  <text x="450" y="206" text-anchor="middle" fill="#00f2fe" font-family="system-ui,sans-serif" font-size="14" font-weight="700">BANK</text>
+  <text x="450" y="252" text-anchor="middle" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="15" font-weight="600">Welcome back</text>
+  <text x="450" y="272" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">Sign in to continue</text>
+  <text x="354" y="302" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10">Mobile number</text>
+  <rect x="354" y="308" width="192" height="34" rx="8" fill="#475569" stroke="#cbd5e1"/>
+  <text x="366" y="329" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">+91 xxxxx xxxxx</text>
+  <text x="354" y="362" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="10">MPIN / Password</text>
+  <rect x="354" y="368" width="192" height="34" rx="8" fill="#475569" stroke="#cbd5e1"/>
+  <circle cx="528" cy="385" r="3" fill="#64748b"/>
+  <circle cx="520" cy="385" r="3" fill="#64748b"/>
+  <circle cx="512" cy="385" r="3" fill="#64748b"/>
+  <rect x="354" y="416" width="192" height="40" rx="10" fill="url(#androidBtnDark)"/>
+  <text x="450" y="441" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Login</text>
+  <text x="450" y="472" text-anchor="middle" fill="#00f2fe" font-family="system-ui,sans-serif" font-size="11">Use biometric login</text>
+  <rect x="408" y="468" width="84" height="4" rx="2" fill="#64748b"/>
+</svg>
