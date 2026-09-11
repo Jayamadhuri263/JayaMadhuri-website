@@ -23,6 +23,11 @@ const staggerContainer = {
 const INTELLECT_BRAND = '#006CB5';
 
 function centerLabelLines(label) {
+  const preset = {
+    'Less is More': ['Less is', 'More'],
+    'The Last 2%': ['The Last', '2%'],
+  };
+  if (preset[label]) return preset[label];
   const words = label.split(' ');
   if (words.length <= 2) return words;
   const mid = Math.ceil(words.length / 2);
@@ -30,7 +35,7 @@ function centerLabelLines(label) {
 }
 
 function PrinciplesOrbit({ isDark, reducedMotion }) {
-  const center = { x: 200, y: 200 };
+  const center = { x: 200, y: 210 };
   const nodes = [
     { label: 'Less is More', angle: -90, color: '#22d3ee' },
     { label: 'The Last 2%', angle: 30, color: '#a855f7' },
@@ -38,7 +43,11 @@ function PrinciplesOrbit({ isDark, reducedMotion }) {
   ];
 
   return (
-      <svg viewBox="0 0 400 400" className="w-full max-w-md mx-auto" aria-hidden="true">
+      <svg
+        viewBox="0 0 400 420"
+        className="w-full max-w-md mx-auto overflow-visible"
+        aria-hidden="true"
+      >
         <defs>
           <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#00F2FE" stopOpacity="0.4" />
@@ -105,7 +114,7 @@ function PrinciplesOrbit({ isDark, reducedMotion }) {
                 fill={isDark ? '#161F30' : '#ffffff'}
                 stroke={node.color}
                 strokeWidth="2"
-                filter="url(#glow)"
+                filter={isDark ? 'url(#glow)' : undefined}
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
@@ -130,21 +139,25 @@ function PrinciplesOrbit({ isDark, reducedMotion }) {
                 x={x}
                 y={y}
                 textAnchor="middle"
+                dominantBaseline="middle"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 + i * 0.1 }}
-                style={{
-                  fill: isDark ? '#f1f5f9' : '#1e293b',
-                  fontSize: 8.5,
-                  fontWeight: 600,
-                }}
+                fill={isDark ? '#f1f5f9' : '#0f172a'}
+                fontSize="8.5"
+                fontWeight="600"
+                {...(!isDark && {
+                  stroke: '#ffffff',
+                  strokeWidth: 0.35,
+                  paintOrder: 'stroke fill',
+                })}
               >
                 {centerLabelLines(node.label).map((line, li, arr) => (
                   <tspan
-                    key={line}
+                    key={`${node.label}-${line}`}
                     x={x}
-                    dy={li === 0 ? (arr.length > 1 ? '-0.55em' : '0.32em') : '1.1em'}
+                    dy={li === 0 ? (arr.length > 1 ? '-0.5em' : '0') : '1.05em'}
                   >
                     {line}
                   </tspan>
@@ -236,7 +249,11 @@ function ConceptDiagram({ isDark }) {
               className={`flex-1 rounded-xl border-2 ${item.color} p-4 ${isDark ? 'bg-cyber-card/50 hover:shadow-glow' : 'bg-slate-50'} transition-shadow`}
             >
               <div className={`font-bold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.step}</div>
-              <div className={isDark ? 'text-gray-400 text-xs' : 'text-gray-600 text-xs'}>{item.desc}</div>
+              <div
+                className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-800 font-medium'}`}
+              >
+                {item.desc}
+              </div>
             </motion.div>
             {i < arr.length - 1 && (
               <motion.span
@@ -265,7 +282,7 @@ function LessIsMoreIllustration({ isDark }) {
         viewport={{ once: true }}
         className={`rounded-lg p-3 border border-red-500/20 ${isDark ? 'bg-red-500/5' : 'bg-red-50'}`}
       >
-        <p className="text-red-400 font-semibold mb-2">Before</p>
+        <p className={`font-semibold mb-2 ${isDark ? 'text-red-400' : 'text-red-700'}`}>Before</p>
         <div className="space-y-1">
           {[1, 2, 3, 4, 5, 6].map((n) => (
             <motion.div
@@ -287,7 +304,7 @@ function LessIsMoreIllustration({ isDark }) {
         transition={{ delay: 0.2 }}
         className={`rounded-lg p-3 border border-cyan-500/30 ${isDark ? 'bg-cyan-500/5' : 'bg-cyan-50'}`}
       >
-        <p className="text-cyan-400 font-semibold mb-2">After</p>
+        <p className={`font-semibold mb-2 ${isDark ? 'text-cyan-400' : 'text-cyan-800'}`}>After</p>
         <div className="space-y-2">
           <motion.div
             initial={{ scaleX: 0 }}
@@ -591,7 +608,11 @@ export default function DesignThinking() {
                   </motion.span>
                 </div>
 
-                <h3 className="text-xl font-bold mb-1 relative">{law.title}</h3>
+                <h3
+                  className={`text-xl font-bold mb-1 relative ${isDark ? 'text-white' : 'text-gray-900'}`}
+                >
+                  {law.title}
+                </h3>
                 <p className={`text-sm font-medium mb-3 relative ${isDark ? 'text-cyber-accent' : 'text-slate-accent'}`}>
                   {law.tagline}
                 </p>

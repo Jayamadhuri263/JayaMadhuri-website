@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Building2, ExternalLink, Github, FileText, User } from 'lucide-react';
+import { Award, Building2, ChevronDown, ChevronUp, ExternalLink, Github, FileText, User } from 'lucide-react';
 import { projects, categories } from '../../data/projects';
 import { featuredCaseStudy } from '../../data/featuredCaseStudy';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function PortfolioGrid() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [showMorePersonal, setShowMorePersonal] = useState(false);
   const { isDark } = useTheme();
   const caseImage = isDark ? featuredCaseStudy.imageDark : featuredCaseStudy.imageLight;
 
-  const projectSort = (a, b) => {
-    const rank = (p) => {
-      if (p.featured) return 0;
-      if (p.workContext === 'personal') return 1;
-      return 2;
-    };
-    const d = rank(a) - rank(b);
-    if (d !== 0) return d;
-    return (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99);
-  };
+  const projectSort = (a, b) => (a.displayOrder ?? 999) - (b.displayOrder ?? 999);
 
   const filtered = (
     activeCategory === 'All' ? [...projects] : projects.filter((p) => p.category.includes(activeCategory))
   ).sort(projectSort);
+
+  const hiddenByViewMore = filtered.filter((p) => p.revealOnViewMore);
+  const visibleProjects = filtered.filter((p) => !p.revealOnViewMore || showMorePersonal);
+  const canToggleMore = hiddenByViewMore.length > 0;
 
   const hasLiveDemo = (project) =>
     project.workContext === 'personal' && Boolean(project.liveDemo);
@@ -140,7 +136,7 @@ export default function PortfolioGrid() {
 
         <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
+            {visibleProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -242,6 +238,31 @@ export default function PortfolioGrid() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {canToggleMore && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowMorePersonal((open) => !open)}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors cursor-pointer border ${
+                isDark
+                  ? 'bg-white/5 hover:bg-white/10 text-gray-200 border-white/15'
+                  : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200 shadow-sm'
+              }`}
+              aria-expanded={showMorePersonal}
+            >
+              {showMorePersonal ? (
+                <>
+                  View less <ChevronUp size={18} aria-hidden />
+                </>
+              ) : (
+                <>
+                  View more <ChevronDown size={18} aria-hidden />
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
